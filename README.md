@@ -16,13 +16,15 @@
 
 CS：Tornado服务端，Python\Jquery\Ajax客户端代码
 
+持续更新
+
 ## 使用的语言及框架
 
-1.tornado
++ 1.tornado
 
-2.jquery
++ 2.jquery
 
-3.python
++ 3.python
 
 ## 贡献者
 
@@ -34,5 +36,7 @@ gl-coding(整合)
 
 ## 鸣谢
 
-网上的各种代码
+各位网友
+
+各位大神
 
