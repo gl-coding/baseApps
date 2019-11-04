@@ -1,0 +1,80 @@
+<html>
+<head>
+    <title>测试Ajax</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>  
+
+    <style type="text/css">
+
+#result{
+    border: 10px;
+    font-size: 50px;
+    background: #ff0fef;
+}
+
+    </style>
+</head>
+<body>
+
+    <input type="text" id="word1" > <br>
+    <button id="foo1">点击</button>
+    <br/>
+    <input type="text" id="word2" > <br>
+    <button onclick="request()" id="foo2">点击</button>
+
+    <div id="result1">
+    <div id="result2">
+
+    </div>
+
+
+<script type="text/javascript">
+
+    $("#foo1").click(function()
+    {
+        var word = $("#word1").val(); //获取文本框的输入
+
+        //把word发给后台php程序
+        //返回的数据放在data中，返回状态放在status
+        $.post("http://127.0.0.1:8000", {message:word}, function(data,status){
+            alert(status);
+            if(status == "success")
+            {
+                $("#result1").html(data);
+            }
+            else
+            {
+                alert("Ajax 失败");
+            }
+        });
+    });
+
+function request() {
+	//alert("asdfasdf");
+	let schoolList = {
+		"message": "asdfasf"
+	};
+	$.ajax({
+		type:'POST',//类型
+		url:'http://127.0.0.1:8000',//地址
+		data:JSON.stringify(schoolList),
+		dataType:'text',//数据类型
+		async:false,
+		contentType: "application/json;charset=utf-8;",
+		//timeout:2000,//超时
+		//请求成功
+		success:function(result){
+			alert("aaaaaaaaaa");
+		},
+		//失败/超时
+		error:function(res){
+			alert("bbbbbbbbbb");
+		}
+	});
+}
+
+
+</script>
+
+</body>
+</html>
